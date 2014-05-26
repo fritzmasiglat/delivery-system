@@ -1,0 +1,54 @@
+<center><h1>CHOOSE YOUR FOOD</h1></center><br>
+<div id="box5">
+<h1>Order Now</h1>
+<br>
+<% @foods.each do |food| %>
+	<p id="each_food">
+		<% food.id %>
+		<name><%= food.name %></name><br />
+		<foodtype>[ <%= food.foodtype %> ]</foodtype><br />
+		Php <%= food.price.to_f %><br />
+		<%= link_to "Add to Tray", new_sub_order_path(:id => food.id, :c_id => params[:c_id]), :id => "submit_btn" %>
+	</p>
+<% end %> 
+</div>
+
+<div id="box6">
+<h2>Your Tray
+<br><span>THIS IS YOUR FOOD BOX</span></h2>
+<table id="order_table">
+	<tr>
+		<th>Items</th>
+		<th>Quantity</th>
+		<th>Item Price</th>
+		<th>Total Price</th>
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+	</tr>
+<% @sub_orders.each do |sub_order| %>
+	<tr>
+		<td>
+			<%= sub_order.name %><br />
+			<%= sub_order.foodtype %><br />
+		</td>
+		<td><%= sub_order.quantity.to_f %></td>
+		<td>Php <%= sub_order.totalprice.to_f / sub_order.quantity.to_f %></td>
+		<td>Php <%= sub_order.totalprice.to_f %></td>
+		<td><%= link_to "Edit", edit_sub_order_path(sub_order.id, :c_id => params[:c_id]), :class => "mini_btn" %> | 
+		<%= link_to "Remove", sub_order, :method => :delete, :class => "mini_btn2" %></td>
+	</tr>
+<% @sub_orders_total = @sub_orders_total.to_i + sub_order.totalprice %>
+<% end %>
+</table>
+<br>
+<b>Total:</b> Php <%= @sub_orders_total.to_f %><br />
+<b>Delivery Charge:</b> Php <%= @delivery_charge.to_f %> <br />
+<% @grand_total = @sub_orders_total.to_f + @delivery_charge.to_f %>
+<b>Grand Total:</b> Php <%= @grand_total.to_f %>
+<br><br>
+<hr>
+<center>
+<h1>Proceed to Cash Out</h1>
+<%= link_to "Cash Out", new_cashout_path(:sub_total => @sub_orders_total.to_f, :del_charge => @delivery_charge.to_f, :grand_total => @grand_total.to_f, :c_id => params[:c_id]), :class => "button-style" %>
+</center>
+</div>
+

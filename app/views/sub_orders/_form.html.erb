@@ -1,0 +1,27 @@
+<%= form_for sub_order do |f| %>
+<table class="table_form">
+<%= f.text_field :cust_id, :value => params[:c_id], :hidden => true %>
+<%= f.text_field :food_id, :value => @food.id, :hidden => true %>
+
+	<tr>
+		<td>Name:</td> 
+		<td><%= f.text_field :name, :value => @food.name, :readonly => true %></td>
+	</tr>
+
+	<tr>
+		<td>Type: </td>
+		<td><%= f.text_field :foodtype, :value => @food.foodtype, :readonly => true %></td>
+	</tr>
+
+	<tr>
+		<td>Price: </td>	
+		<td><%= f.text_field :price, :value => @food.price, :readonly => true %></td>
+	</tr>
+	<tr>
+		<td>Quantity: </td> 
+		<td><%= f.number_field :quantity, :value => 1, :min => 1%></td>
+	</tr>
+</table>
+<%= f.submit "Save", :class => "button-style"  %>
+<% end %>
+<%= link_to 'Go back to Foods List', sub_orders_path(params[:c_id]), :class => "button-style-2" %>

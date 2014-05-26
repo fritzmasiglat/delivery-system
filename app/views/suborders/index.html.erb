@@ -1,0 +1,9 @@
+<h1>Order Now</h1>
+<% @foods.each do |food| %>
+	<p>
+		<%= food.id %><br />
+		<%= food.name %><br />
+		<%= food.foodtype %><br />
+		<%= food.price %><br />
+		<%= link_to "Add to Tray", new_sub_order_path(:id => food.id) %>
+<% end %>  

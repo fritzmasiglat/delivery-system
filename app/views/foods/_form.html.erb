@@ -1,0 +1,22 @@
+<%= form_for food do |f| %>
+	<table id="table_form">
+    	<tr>
+    		<td>Food Name: </td>
+    		<td><%= f.text_field :name %></td>
+    	</tr>
+
+    	<tr>
+    		<td>Food Type: </td>
+    		<td><%= f.text_field :foodtype %></td>
+    	</tr>    
+
+    	<tr>
+    		<td>Price</td>
+    		<td><%= f.text_field :price %></td>
+    	</tr>
+    	
+    	<tr>
+    		<td><%= f.submit "Save", :class => "button-style" %></td>
+    	</tr>
+    </table>
+ <% end %>

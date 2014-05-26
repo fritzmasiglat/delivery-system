@@ -1,0 +1,8 @@
+<%= form_for sub_order do |f| %>
+<h1>Name: 	<%= f.text_field :name, :value => @food.name, :readonly => true %></h1>
+<p>Type:	<%= f.text_field :foodtype, :value => @food.foodtype, :readonly => true %></p>
+<p>Price	<%= f.text_field :price, :value => @food.price, :readonly => true %></p>
+<p>Quantity <%= f.number_field :quantity %></p>
+<%= f.submit "Save" %>
+<% end %>
+<%= link_to 'Go back to Foods List', sub_orders_path %>

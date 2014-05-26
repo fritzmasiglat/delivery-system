@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Avant Garde Eatery</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Raleway:400,700,200,300,900,800" rel="stylesheet" type="text/css">
+
+  	<%= stylesheet_link_tag 'stylesheets/default' %>
+  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="wrapper" class="container">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#"><span>Avante Garde</span>Eatery</h1>			
+			<p>NEOPHYTE IN ONLINE DELIVERY. BUT NOT IN FOOD QUALITY.</p>
+		</div>
+		<div id="menu">
+			<ul>
+				<li class="first current_page_item"><%= link_to 'Homepage', '/' %></li>
+				<li><%= link_to 'Order Now', customer_orders_path %></a></li>
+				<li><%= link_to 'About Us', '#' %></a></li>
+			</ul>
+		</div>
+	</div>
+
+<div id="page">
+	<div class="content">
+		<div id="cbox">
+		<span>Avant Garde Eatery</span>
+		<h2>NOW WITH ONLINE DELIVERY</h2>
+		<p>Experience our new online delivery system! It's amazing.</p>
+		<center>
+		<%= link_to 'Order Now', customer_orders_path, :class => "button-style button-style-alt" %>
+		</center>
+		</div>
+	</div>
+</div>
+<div id="featured-wrapper">
+	<%= yield %>
+</div>
+
+	<div id="footer-content" class="container">
+		<div id="fbox1">
+			<h2>Recent Updates</h2>
+			<ul class="style1">
+				<li class="first"><a href="#">New Avant Garde branch in Riddle City</a></li>
+				<li><a href="#">Best Diner in town is Avant Garde</a></li>
+				<li><a href="#">'Avant Garde' is on the boom</a></li>
+				<li><a href="#">New food products are available in Avant Garde</a></li>
+			</ul>
+		</div>
+		<div id="fbox2">
+			<h2>About</h2>
+			<p>This is<strong> Avant Garde Eatery's Website</strong> a dummy restaurant website with an online delivery system for MIS21. This was made by Fritz Masiglat from scratch - except for the CSS Theme (originally from Templated.Co but was modified) and the images which were searched in Google. Also, some of the codes in the website were adapted from Stack Overflow. Feel free to explore the website.</p>
+			<a href="#" class="button-style">See more of Avant Garde Eatery</a> </div>
+		<div id="fbox3">
+			<h2>Contact</h2>
+			<p>You can keep in touch with Avant Garde Eatery online. Check the different social accounts below.</p>
+			<ul class="style2">
+				<li><a href="#"><img src="assets/social03.png" width="32" height="32" alt="" /></a></li>
+				<li><a href="#"><img src="assets/social01.png" width="32" height="32" alt="" /></a></li>
+				<li><a href="#"><img src="assets/social04.png" width="32" height="32" alt="" /></a></li>
+				<li><a href="#"><img src="assets/social02.png" width="32" height="32" alt="" /></a></li>
+			</ul>
+		</div>
+	</div>
+<div id="footer">
+	<p>© Copyright Avante Garde Eatery 2014 | Fritz Masiglat</p>
+</div>
+
+</body>
+</html>

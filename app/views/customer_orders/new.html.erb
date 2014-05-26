@@ -1,0 +1,16 @@
+<div id="box4">
+<h2>Hello Customer!
+<br><span>Enter your details here</span></h2>
+<% if @customer_order.errors.any? %>
+<div class="error">
+	ERROR:<br>
+	<ul>
+	<% @customer_order.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+	<% end %>
+</div>
+<% end %>
+
+<p>So here's the contact form for your delivery. Please fill it out!</p>
+ <%= render partial: "customer_orders/form", locals: { customer_order: @customer_order } %>
+</div>

@@ -1,0 +1,18 @@
+<h2>Food Products
+<br><span>ALL THE FOOD IN THE HOUSE</span></h2>
+<p>Hello Admin! So, in this page you can enter new food products to be displayed in the restaurant. <br><i><b>Note:</b> Click on the food's name if you want to edit its attributes.</i></p>
+<% @foods.each do |food| %>
+	<p id="each_food">
+		<b>Food ID:</b> <%= food.id %><br>
+		<b>Food Name:</b> <name><%= link_to food.name, food_path(food.id) %></name><br />
+		<b>Food Type:</b> <foodtype>[ <%= food.foodtype %> ]</foodtype><br />
+		<b>Price:</b> Php <%= food.price.to_f %><br />
+		<%= link_to 'Edit', edit_food_path(:id => food.id), :class => "button-style-5" %>
+	</p>
+<% end %> 
+<br><br>
+ <p><%= link_to 'Create New Food Entry', new_food_path, :id => "submit_btn" %></p>
+
+<center>
+ <%= link_to 'Back to Admin Page', "/admin", :class => "button-style-2" %>
+</center>

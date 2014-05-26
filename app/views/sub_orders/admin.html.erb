@@ -1,0 +1,35 @@
+<center>
+<h2>CUSTOMER ORDERS
+<br><span>THIS THE FOOD BOX</span></h2>
+
+<table id="admin_table">
+	<tr>
+		<th>Items</th>
+		<th>Quantity</th>
+		<th>Item Price</th>
+		<th>Total Price</th>
+	</tr>
+<% @sub_orders.each do |sub_order| %>
+	<tr>
+		<td>
+			<%= sub_order.name %><br />
+			<%= sub_order.foodtype %><br />
+		</td>
+		<td><%= sub_order.quantity.to_f %></td>
+		<td>Php <%= sub_order.totalprice.to_f / sub_order.quantity.to_f %></td>
+		<td>Php <%= sub_order.totalprice.to_f %></td>
+	</tr>
+<% @sub_orders_total = @sub_orders_total.to_i + sub_order.totalprice %>
+<% end %>
+</table>
+<br>
+<p>
+<b>Total:</b> Php <%= @sub_orders_total.to_f %><br />
+<b>Delivery Charge:</b> Php <%= @delivery_charge.to_f %> <br />
+<% @grand_total = @sub_orders_total.to_f + @delivery_charge.to_f %>
+<b>Grand Total:</b> Php <%= @grand_total.to_f %>
+</p>
+<br><br>
+
+<%= link_to "Back to Customer Orders", "/admin/orders", :class => "button-style"%>
+</center>

@@ -1,0 +1,28 @@
+<div id="box4-alt">
+<center>
+<h2>Delivery Total<br>
+<span>LAST STEP</span>
+</h2>
+<p>Dear Customer! Here's the cashout summary for your order.</p>
+<br>
+<%= form_for @cashout do |f| %>
+<% f.hidden_field :customer_id, :value => params[:c_id] %>
+	<table id="cashout_table">
+		<tr>
+			<td class="cashout_label">Total: </td>
+			<td>Php <%= f.text_field :c_sub_total, :value => params[:sub_total], :readonly => true %></td>
+		</tr>
+		<tr>
+			<td class="cashout_label">Delivery Charge: </td>
+			<td>Php <%= f.text_field :c_del_charge, :value => params[:del_charge], :readonly => true  %></td>
+		</tr>
+		<tr>
+			<td class="cashout_label">Grand Total: </td>
+			<td>Php <%= f.text_field :c_grand_total, :value => params[:grand_total], :readonly => true  %></td>
+		</tr>
+	</table>
+	<br>
+	<%= f.submit "PROCEED", :class => "button-style" %>
+<% end %>
+</center>
+</div>

@@ -1,0 +1,14 @@
+<div id="box4">
+<h2>NEW FOOD
+<br><span>ADD A NEW FOOD ENTRY HERE</span></h2>
+<% if @food.errors.any? %>
+<div class="error">
+	ERROR:<br>
+	<ul>
+	<% @food.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+	<% end %>
+</div>
+<% end %>
+ <%= render partial: "foods/form", locals: { food: @food } %>
+</div>

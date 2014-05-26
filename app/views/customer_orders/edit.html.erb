@@ -1,0 +1,46 @@
+<div id="box4">
+<h2>EDIT CUSTOMER ORDER
+<br><span>ORDER CHANGER</span></h2>
+<% if @customer_order.errors.any? %>
+<div class="error">
+	ERROR:<br>
+	<ul>
+	<% @customer_order.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+	<% end %>
+</div>
+<% end %>
+
+<p>You may now do changes to this customer order, Admin!</p>
+
+<%= form_for @customer_order do |f| %>
+<table class="table_form">
+	<tr>
+		<td>Customer Name: </td>
+		<td><%= f.text_field :customer_name %></td>
+	</tr>
+
+	<tr>
+		<td>Contact Number: </td>
+		<td><%= f.text_field :contact_number %></td>
+	</tr>
+
+	<tr>
+		<td>Email: </td>
+		<td><%= f.text_field :email %></td>
+	</tr>
+
+	<tr>
+		<td>Address: </td>
+		<td><%= f.text_field :address %></td>
+	</tr>
+
+	<tr>
+		<td>Order Date: </td>
+		<td><%= f.date_field :order_date, :readonly => true %></td>
+	</tr>
+</table>
+<center><%= f.submit "Enter", :class => "button-style"%></center>
+<% end %>
+
+</div>

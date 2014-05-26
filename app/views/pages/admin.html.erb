@@ -1,0 +1,25 @@
+<center>
+<div id="box4">
+	<h2>ADMIN PAGE
+	<br><span>You're the boss around here</span></h2>
+
+	<p>Hello Dear Admin! I know you are excited to explore your administrative skills but please have time to read these instructions so that you'll know how to manipulate this site. </p>
+
+	<p>Here are the links with their respective functions</p>
+	<table id="admin_table">
+		<tr>
+			<th>FUNCTION</th>
+			<th>LINK</th>
+		</tr>
+		<tr>
+			<td>To SEE all Food Products and ENTER new ones</td>
+			<td><%= link_to "See Food Entries", foods_path, :class => "button-style-2" %></td>
+		</tr>
+
+		<tr>
+			<td>To SEE all Online Orders</td>
+			<td><%= link_to "See All Orders", '/admin/orders', :class => "button-style-2" %></td>
+		</tr>
+	</table>
+</div>
+</center>

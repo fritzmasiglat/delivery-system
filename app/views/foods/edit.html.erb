@@ -1,0 +1,15 @@
+<div id="box4">
+<h2>EDIT THE FOOD
+<br><span>Change the food entry here</span></h2>
+<% if @food.errors.any? %>
+<div class="error">
+	ERROR:<br>
+	<ul>
+	<% @food.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+	<% end %>
+</div>
+<% end %>
+<p>In this form you can make changes in the food entry.</p>
+	<%= render partial: "foods/form", locals: { food: @food } %>
+</div>
